@@ -1,0 +1,32 @@
+{
+"variables": {
+"instance_size": "t2.small",
+"ami_name": "ami-packer",
+"base_ami": "ami-09ce2fc392a4c0fbc",
+"ssh_username": "ec2-user",
+},
+        "builders": [
+                {
+                        "type": "amazon-ebs",
+                        "region": "eu-west-1",
+                        "ami_name": "{{user 'ami_name'}}",
+                        "source_ami": "{{user 'base_ami'}}",
+                        "instance_type": "{{user 'instance_size'}}",
+                        "ssh_username": "{{user 'ssh_username'}}",
+                        "tags": {
+                            "Name": "Packer AMI",
+                            "BuiltBy": "Packer"
+                        }
+                }
+        ],
+        "description": "AWS Image",
+        "provisioners": [
+                    {
+                      "type": "shell",
+                      "inline": [
+                        "sudo yum update -y",
+                        "sudo yum install -y git"
+                        ]
+                    }
+         ]
+}
