@@ -1,10 +1,4 @@
 {
-"variables": {
-"instance_size": "t2.small",
-"ami_name": "ami-packer",
-"base_ami": "ami-09ce2fc392a4c0fbc",
-"ssh_username": "ec2-user",
-},
         "builders": [
                 {
                         "type": "amazon-ebs",
