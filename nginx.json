@@ -3,7 +3,7 @@
                 {
                         "type": "amazon-ebs",
                         "region": "eu-west-1",
-                        "ami_name": "{{user 'ami_name'}}",
+                        "ami_name": "{{user 'ami_name'}}-{{timestamp}}",
                         "source_ami": "{{user 'base_ami'}}",
                         "instance_type": "{{user 'instance_size'}}",
                         "ssh_username": "{{user 'ssh_username'}}",
