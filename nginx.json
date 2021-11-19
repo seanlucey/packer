@@ -8,7 +8,7 @@
                         "instance_type": "{{user 'instance_size'}}",
                         "ssh_username": "{{user 'ssh_username'}}",
                         "tags": {
-                            "Name": "Packer AMI",
+                            "Name": "Nginx AMI",
                             "BuiltBy": "Packer"
                         }
                 }
