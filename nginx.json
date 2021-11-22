@@ -4,9 +4,17 @@
                         "type": "amazon-ebs",
                         "region": "eu-west-1",
                         "ami_name": "{{user 'ami_name'}}-{{timestamp}}",
-                        "source_ami": "{{user 'base_ami'}}",
                         "instance_type": "{{user 'instance_size'}}",
                         "ssh_username": "{{user 'ssh_username'}}",
+                        "source_ami_filter": {
+                                "filters": {
+                                      "virtualization-type": "hvm",
+                                      "name": "amzn2-ami-hvm-*",
+                                      "root-device-type": "ebs"
+                                      },
+                                "most_recent": true,
+                                "owners": "amazon"
+                      },    
                         "tags": {
                             "Name": "Nginx AMI",
                             "BuiltBy": "Packer"
