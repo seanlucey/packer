@@ -14,11 +14,15 @@
       "most_recent": true,
       "owners": "amazon"
     },    
-    "ami_name": "windows-{{timestamp}}",
-    "user_data_file": "./boot_config/packer_bootstrap_win.txt",
+    "ami_name": "WIN2019-{{timestamp}}",
+    "user_data_file": "userdata.ps1",
+    "associate_public_ip_address": true,
     "communicator": "winrm",
     "winrm_username": "Administrator",
-    "winrm_password": "SuperS3cr3t!"
+    "winrm_port": 5986,
+    "winrm_timeout": "15m",
+    "winrm_use_ssl": true,
+    "winrm_insecure": true
   }],
   "provisioners": [
     {
